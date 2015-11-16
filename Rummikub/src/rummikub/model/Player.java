@@ -44,16 +44,13 @@ public class Player {
     }
     
     public Tile drawTileByIndex(int i)
-    {
-        Tile drawn = null;
-        
-        if (i < m_hand.size())
+    {        
+        if (i >= m_hand.size())
         {
-            drawn = m_hand.get(i);
-            m_hand.remove(i);
+            throw new  ArrayIndexOutOfBoundsException();
         }
         
-        return drawn;
+        return m_hand.remove(i);
     }
     
     public void addTileToHand(Tile tile)

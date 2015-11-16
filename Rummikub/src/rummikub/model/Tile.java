@@ -12,7 +12,8 @@ import java.util.*;
  *
  * @author Guy
  */
-public class Tile
+
+public class Tile implements Comparable<Tile>
 {
     public enum Color {
     BLACK,
@@ -23,7 +24,7 @@ public class Tile
 
     private final Color m_color;
     
-    private final int m_value;
+    private final Integer m_value;
     
     public Color getColor() {
         return m_color;
@@ -62,9 +63,16 @@ public class Tile
     {
         return new ArrayList<Tile>(tileSet);
     }
+
+    @Override
+    public int compareTo(Tile other) 
+    {
+        return m_value.compareTo(other.getValue());
+    }
     
     public boolean isJoker()
     {
         return m_value == 0;
     }
+
 }

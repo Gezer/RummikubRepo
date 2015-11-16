@@ -13,8 +13,8 @@ import java.util.*;
  */
 public class Pile {
     
-    private ArrayList<Tile>  m_pile;
-
+    private ArrayList<Tile>  m_pile = new ArrayList<>();
+    
     public Pile(ArrayList<Tile> tileSet)
     {
         this.m_pile = tileSet;
