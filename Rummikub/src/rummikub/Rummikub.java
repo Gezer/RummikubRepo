@@ -5,6 +5,8 @@
  */
 package rummikub;
 
+import rummikub.controller.RummikubApp;
+
 /**
  *
  * @author Guy
@@ -16,6 +18,8 @@ public class Rummikub {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        RummikubApp app = new RummikubApp();
+        app.run();
     }
 
 }

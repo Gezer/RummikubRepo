@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rummikub.model;
+package rummikub.controller;
 
 /**
  *
  * @author Guy
  */
-public enum Color {
-
-    BLACK,
-    RED,
-    BLUE,
-    YELLOW
+public interface ICommand {
+    void Execute();
 }

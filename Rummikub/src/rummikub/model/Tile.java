@@ -14,7 +14,6 @@ import java.util.*;
  */
 public class Tile
 {
-    
     public enum Color {
     BLACK,
     RED,
@@ -62,5 +61,10 @@ public class Tile
     public static ArrayList<Tile> newTileSet()
     {
         return new ArrayList<Tile>(tileSet);
+    }
+    
+    public boolean isJoker()
+    {
+        return m_value == 0;
     }
 }

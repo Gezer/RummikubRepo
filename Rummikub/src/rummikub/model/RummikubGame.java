@@ -16,7 +16,7 @@ public class RummikubGame {
     
     private Player currnetPlayer;
     
-    private Pile pile = new Pile();
+   // private Pile pile = new Pile();
     
     
 }

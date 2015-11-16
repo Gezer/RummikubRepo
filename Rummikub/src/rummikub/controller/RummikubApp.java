@@ -3,15 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rummikub.model;
+package rummikub.controller;
 
-import java.util.*;
+import rummikub.model.*;
+import rummikub.view.*;
+
 /**
  *
  * @author Guy
  */
-public class Board {
+public class RummikubApp {
     
-    private List<Sequence> sequences = new ArrayList<Sequence>();
+    public void run()
+    {
+        
+    }
     
 }
