@@ -12,8 +12,16 @@ import java.util.*;
  *
  * @author Guy
  */
-public class Tile {
+public class Tile
+{
     
+    public enum Color {
+    BLACK,
+    RED,
+    BLUE,
+    YELLOW
+    }
+
     private final Color m_color;
     
     private final int m_value;
