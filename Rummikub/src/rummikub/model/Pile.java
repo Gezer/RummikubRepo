@@ -5,10 +5,31 @@
  */
 package rummikub.model;
 
+import java.util.*;
+
 /**
  *
  * @author Guy
  */
 public class Pile {
     
+    private ArrayList<Tile>  m_pile;
+
+    public Pile(ArrayList<Tile> tileSet)
+    {
+        this.m_pile = tileSet;
+        Collections.shuffle(m_pile);
+    }
+    
+    public Tile Draw()
+    {
+        Tile drawn = null;
+        
+        if (m_pile.size() > 0) {
+            drawn = m_pile.get(0);
+            m_pile.remove(0);
+        }
+        
+        return drawn;
+    }
 }
