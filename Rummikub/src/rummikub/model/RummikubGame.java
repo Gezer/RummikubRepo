@@ -5,12 +5,18 @@
  */
 package rummikub.model;
 
+import java.util.*;
 /**
  *
  * @authors Guy Dunski Dmitry katz
  */
 public class RummikubGame {
     
+    private ArrayList<Player> players = new ArrayList<Player>();
+    
+    private Player currnetPlayer;
+    
+    private Pile pile = new Pile();
     
     
 }

@@ -5,16 +5,11 @@
  */
 package rummikub.model;
 
-import java.util.*;
 /**
  *
- * @author Guy
+ * @author DK
  */
-public class Board {
-    
-    private ArrayList<Sequence> sequences = new ArrayList<Sequence>();
-    
-    
-    
+public class Sequence
+{
     
 }
