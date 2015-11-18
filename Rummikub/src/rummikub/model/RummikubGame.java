@@ -20,14 +20,14 @@ public class RummikubGame {
     
     private Board m_board;
     
-    public void moveTileInBoard(int sourceIndex, int tileIndex, int destIndex)
+    public void moveTileInBoard(int sourceIndex, int sourceTileIndex, int destIndex, int destTileIndex)
     {
-        m_board.moveTile(sourceIndex, tileIndex, destIndex);
+        m_board.moveTile(sourceIndex, sourceTileIndex, destIndex, destTileIndex);
     }
     
-    public void playTileFromHand(int tileIndex, int destIndex)
+    public void playTileFromHand(int handTileIndex, int destIndex, int destTileIndex)
     {
-        Tile tileToplay = m_currentPlayer.drawTileByIndex(tileIndex);
-        m_board.insertTile(tileToplay, destIndex);
+        Tile tileToplay = m_currentPlayer.drawTileByIndex(handTileIndex);
+        m_board.insertTile(tileToplay, destIndex, destTileIndex);
     }
 }
