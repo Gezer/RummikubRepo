@@ -10,5 +10,5 @@ package rummikub.controller;
  * @author Guy
  */
 public interface ICommand {
-    void Execute();
+    void execute();
 }
