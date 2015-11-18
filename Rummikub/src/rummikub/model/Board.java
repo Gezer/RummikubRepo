@@ -27,4 +27,14 @@ public class Board {
         Sequence destSequence = m_sequences.get(destIndex);
         destSequence.AddTile(destTileIndex ,tileToplay);
     }
+
+    boolean validate() {
+        for (Sequence sequence : m_sequences) {
+            if (sequence.Size() != 0)
+            {
+                
+            }
+        }
+        return true;
+    }
 }

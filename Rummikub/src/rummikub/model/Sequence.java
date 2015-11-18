@@ -25,7 +25,6 @@ public class Sequence
         }
         
         m_tiles.add(index ,toAdd);
-        Collections.sort(m_tiles);
     }
 
     public int Size()

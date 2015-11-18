@@ -30,4 +30,9 @@ public class RummikubGame {
         Tile tileToplay = m_currentPlayer.drawTileByIndex(handTileIndex);
         m_board.insertTile(tileToplay, destIndex, destTileIndex);
     }
+    
+    boolean validateGame()
+    {
+        return m_board.validate();
+    }
 }
