@@ -14,8 +14,17 @@ import rummikub.view.*;
  */
 public class Menu
 {
-    private List<MenuItem> menu = new ArrayList<MenuItem>();
+    private List<MenuItem> menu;
+    private String header;
 
+    public String getHeader() {
+        return header;
+    }
+
+    public void setMenuHeader(String header) {
+        this.header = header;
+    }
+    
     public List<MenuItem> getMenu() {
         return menu;
     }
@@ -31,13 +40,13 @@ public class Menu
         
         while (!userQuit)
         {
-            MenuUtils.showMenu(menu);
+            MenuUtils.showMenu(menu, header);
             try
             {
                 userQuit = !MenuUtils.getUserSelection(userSelection, menu.size());
                 if (!userQuit)
                 {
-                    menu.get(userSelection-1).Selected();
+                    menu.get(userSelection-1).selected();
                 }
             }
             catch (IllegalArgumentException ex)

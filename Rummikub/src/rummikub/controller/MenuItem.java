@@ -13,6 +13,11 @@ public class MenuItem
 {
     public ICommand command;
     public String text;
+        
+    public MenuItem(ICommand command, String text) {
+        this.command = command;
+        this.text = text;
+    }
 
     public ICommand getCommand() {
         return command;
@@ -30,11 +35,11 @@ public class MenuItem
         this.text = text;
     }
 
-    public void Selected()
+    public void selected()
     {
         if (command != null)
         {
-            command.Execute();
+            command.execute();
         }
     }
 }

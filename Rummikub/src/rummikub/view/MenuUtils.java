@@ -14,15 +14,15 @@ import java.util.*;
  */
 public class MenuUtils {
     
-    public static void showMenu(List<MenuItem> menu)
+    public static void showMenu(List<MenuItem> menu, String header)
     {
+        System.out.println(header);
         System.out.println("Please choose:");
 
         Integer itemNum = 1;
         for(MenuItem item : menu)
         {
-            System.out.println(itemNum.toString() + ". ");
-            System.out.println(item.getText());
+            System.out.println(itemNum.toString() + ". " + item.getText());
             itemNum++;
         }
         
@@ -44,8 +44,8 @@ public class MenuUtils {
             }
             catch (NumberFormatException ex)
             {
-                throw ex;
-                //throw new IllegalArgumentException("Illegal Input!");
+                //throw ex;
+                throw new IllegalArgumentException("Illegal Input, try againasd!");
             }
             
             if (!(o_UserSelection > 0 && o_UserSelection <= i_MenuItemsCount))
