@@ -13,22 +13,18 @@ import java.util.*;
 public class Board {
     private ArrayList<Sequence> m_sequences = new ArrayList<Sequence>();
 
-    void moveTile(int sourceIndex, int tileIndex, int destIndex)
+    public void moveTile(int sourceIndex, int sourceTileIndex , int destIndex, int destTileIndex)
     {
         Sequence sourceSequence = m_sequences.get(sourceIndex);
         Sequence destSequence = m_sequences.get(destIndex);   
-        if (sourceSequence.Size() <= tileIndex)
-        {
-            throw new ArrayIndexOutOfBoundsException();
-        }
         
-        Tile tileToMove = sourceSequence.removeTile(tileIndex);
-        destSequence.AddTile(tileToMove);     
+        Tile tileToMove = sourceSequence.removeTile(sourceTileIndex);
+        destSequence.AddTile(destTileIndex, tileToMove);     
     }
 
-    void insertTile(Tile tileToplay, int destIndex)
+    public void insertTile(Tile tileToplay, int destIndex, int destTileIndex)
     {
         Sequence destSequence = m_sequences.get(destIndex);
-        destSequence.AddTile(tileToplay);
+        destSequence.AddTile(destTileIndex ,tileToplay);
     }
 }
