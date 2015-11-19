@@ -50,16 +50,19 @@ public class RummikubApp {
     private void playNewGame()
     {
         setNewGame();
+        playGame();
     }
     
     private void loadGameFromFile()
     {
-        
+        //TODO: load game from file
+        playGame();
     }
     
     private void playAnotherRound()
     {
-        
+        setNewRound();
+        playGame();
     }
 
     private void setNewGame() 
@@ -67,6 +70,9 @@ public class RummikubApp {
         HashMap<String, Boolean> playersInfo = new HashMap<>();
         int numOfPlayers = ConsoleUtils.getIntFromUser("How many players?", MIN_PLAYER_NUM, MAX_PLAYER_NUM);
         int numOfComputerPlayers = ConsoleUtils.getIntFromUser("How many are AI?", MIN_PLAYER_NUM, numOfPlayers);
+        String gameName;
+        
+        gameName = ConsoleUtils.messageReadString("Insert the name of the game: ");
         
         for (int i = 0; i < numOfComputerPlayers; i++) {
             playersInfo.put("com" + Integer.toString(i+1), Boolean.TRUE);
@@ -87,6 +93,16 @@ public class RummikubApp {
             }
         }
         
-        game = GameBuilder.createNewGame(playersInfo);
+        game = GameBuilder.createNewGame(playersInfo, gameName);
+    }
+    
+    private void setNewRound()
+    {
+        GameBuilder.resetGame(game);
+    }
+
+    private void playGame() 
+    {
+        
     }
 }

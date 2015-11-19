@@ -14,7 +14,7 @@ package rummikub.model;
  */
 public class XMLHandler {
     
-    private static final generated.ObjectFactory objFactory = new ObjectFactory();
+    private static final generated.ObjectFactory objFactory = new generated.ObjectFactory();
     
     private XMLHandler(){}
     
