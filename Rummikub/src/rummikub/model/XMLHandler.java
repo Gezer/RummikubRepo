@@ -14,6 +14,7 @@ import javax.xml.bind.*;
  * @author DK
  */
 public class XMLHandler {
+<<<<<<< HEAD
 
     private static final generated.ObjectFactory objFactory = new generated.ObjectFactory();
 
@@ -21,6 +22,15 @@ public class XMLHandler {
     }
 
     public static generated.Rummikub createXMLGameObj(RummikubGame game) {
+=======
+    
+    private static final generated.ObjectFactory objFactory = new generated.ObjectFactory();
+    
+    private XMLHandler(){}
+    
+    public static generated.Rummikub createXMLGameObj(RummikubGame game)
+    {
+>>>>>>> origin/master
         generated.Rummikub rummikub = objFactory.createRummikub();
 
         generated.Board board = createXMLBoardObj(game.getBoard());

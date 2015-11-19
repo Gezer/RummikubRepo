@@ -15,13 +15,13 @@ public class RummikubGame {
     private ArrayList<Player> players = new ArrayList<Player>();
     
     private Player currentPlayer;
-   
+    
     private Pile pile;
     
     private Board board;
     
     private String name;
-
+    
     public ArrayList<Player> getPlayers() {
         return players;
     }
@@ -40,6 +40,26 @@ public class RummikubGame {
 
     public String getName() {
         return name;
+    }
+
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
+    }
+
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
+
+    public void setPile(Pile pile) {
+        this.pile = pile;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
     public void moveTileInBoard(int sourceIndex, int sourceTileIndex, int destIndex, int destTileIndex)

@@ -3,17 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/src/rummikub/model/Tile.java</file>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/src/rummikub/model/XMLHandler.java</file>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/src/rummikub/model/Pile.java</file>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/build/generated-sources/jaxb/generated/ObjectFactory.java</file>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/build/generated-sources/jaxb/generated/Board.java</file>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/src/rummikub/model/Board.java</file>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/build/generated-sources/jaxb/generated/Rummikub.java</file>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/src/rummikub/model/GameBuilder.java</file>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/src/rummikub/model/RummikubGame.java</file>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/src/rummikub/model/Player.java</file>
-            <file>file:/C:/Users/DK/Desktop/Java/RummikubRepo/Rummikub/src/rummikub/model/Sequence.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/controller/RummikubApp.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/view/MenuUtils.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/model/Tile.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/Rummikub.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/model/Player.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/model/Sequence.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/model/Pile.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/model/RummikubGame.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/controller/Menu.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/model/GameBuilder.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/model/Board.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/view/ConsoleUtils.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/model/XMLHandler.java</file>
+            <file>file:/C:/Users/Guy/Desktop/RummikubRepo/Rummikub/src/rummikub/controller/MenuItem.java</file>
         </group>
     </open-files>
 </project-private>
