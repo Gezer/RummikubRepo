@@ -24,12 +24,14 @@ public class Pile {
     public Tile Draw()
     {
         Tile drawn = null;
-        
         if (m_pile.size() > 0) {
-            drawn = m_pile.get(0);
-            m_pile.remove(0);
+            drawn = m_pile.remove(0);
         }
         
         return drawn;
+    }
+
+    int size() {
+        return m_pile.size();
     }
 }

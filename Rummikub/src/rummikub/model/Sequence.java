@@ -15,36 +15,40 @@ public class Sequence
     private static final int MIN_LEGAL_LEN = 3;
     private static final int MAX_CONST_LEGAL_LEN = 4;
     
-    private ArrayList<Tile> m_tiles = new ArrayList<Tile>(); 
+    private ArrayList<Tile> tiles = new ArrayList<Tile>(); 
+
+    public ArrayList<Tile> getTiles() {
+        return tiles;
+    }
     
     public void  AddTile(int index, Tile toAdd)
     {
-        if (m_tiles.size() < index)
+        if (tiles.size() < index)
         {
             throw  new ArrayIndexOutOfBoundsException();
         }
         
-        m_tiles.add(index ,toAdd);
+        tiles.add(index ,toAdd);
     }
 
     public int Size()
     {
-        return m_tiles.size();
+        return tiles.size();
     }
 
     Tile removeTile(int index)
     {
-        if (m_tiles.size() <= index)
+        if (tiles.size() <= index)
         {
             throw  new ArrayIndexOutOfBoundsException();
         }
         
-        return m_tiles.remove(index);
+        return tiles.remove(index);
     }
     
     public boolean validate()
     {
-        return m_tiles.size() >= MIN_LEGAL_LEN &&
+        return tiles.size() >= MIN_LEGAL_LEN &&
                ( validateAssendingSeries() || validateConstSeries() );
     }
 
@@ -54,13 +58,13 @@ public class Sequence
         boolean isLegal = true;
         int value = 0;
         boolean valueSet = false;
-        if  (m_tiles.size() > MAX_CONST_LEGAL_LEN)
+        if  (tiles.size() > MAX_CONST_LEGAL_LEN)
         {
             isLegal = false;
         }
         else
         {
-            for (Tile currTile : m_tiles) {
+            for (Tile currTile : tiles) {
                 if (!currTile.isJoker()) {
                     if (!valueSet) {
                         value = currTile.getValue();
@@ -87,9 +91,9 @@ public class Sequence
         Tile.Color color = Tile.Color.BLACK;
         boolean valueSet = false;
         
-        for (int i = 0; i < m_tiles.size(); i++) 
+        for (int i = 0; i < tiles.size(); i++) 
         {
-            Tile currTile = m_tiles.get(i);
+            Tile currTile = tiles.get(i);
             
             if (currTile.isJoker())
             {

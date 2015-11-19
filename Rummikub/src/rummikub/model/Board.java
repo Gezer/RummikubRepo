@@ -11,12 +11,18 @@ import java.util.*;
  * @author Guy
  */
 public class Board {
-    private ArrayList<Sequence> m_sequences = new ArrayList<Sequence>();
+    private ArrayList<Sequence> sequences = new ArrayList<Sequence>();
+
+    public ArrayList<Sequence> getSequences() {
+        return sequences;
+    }
+
+    
 
     public void moveTile(int sourceIndex, int sourceTileIndex , int destIndex, int destTileIndex)
     {
-        Sequence sourceSequence = m_sequences.get(sourceIndex);
-        Sequence destSequence = m_sequences.get(destIndex);   
+        Sequence sourceSequence = sequences.get(sourceIndex);
+        Sequence destSequence = sequences.get(destIndex);   
         
         Tile tileToMove = sourceSequence.removeTile(sourceTileIndex);
         destSequence.AddTile(destTileIndex, tileToMove);     
@@ -24,17 +30,25 @@ public class Board {
 
     public void insertTile(Tile tileToplay, int destIndex, int destTileIndex)
     {
-        Sequence destSequence = m_sequences.get(destIndex);
+        Sequence destSequence = sequences.get(destIndex);
         destSequence.AddTile(destTileIndex ,tileToplay);
     }
 
-    boolean validate() {
-        for (Sequence sequence : m_sequences) {
+    boolean validate()
+    {
+        boolean isValid = true;
+        
+        for (Sequence sequence : sequences) {
             if (sequence.Size() != 0)
             {
-                
+                if (!sequence.validate())
+                {
+                    isValid = false;
+                    break;
+                }
             }
         }
-        return true;
+        
+        return isValid;
     }
 }

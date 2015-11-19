@@ -12,27 +12,62 @@ import java.util.*;
  */
 public class RummikubGame {
     
-    private ArrayList<Player> m_players = new ArrayList<Player>();
+    private ArrayList<Player> players = new ArrayList<Player>();
     
-    private Player m_currentPlayer;
+    private Player currentPlayer;
    
-    private Pile m_pile;
+    private Pile pile;
     
-    private Board m_board;
+    private Board board;
+    
+    private String name;
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public Pile getPile() {
+        return pile;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public String getName() {
+        return name;
+    }
     
     public void moveTileInBoard(int sourceIndex, int sourceTileIndex, int destIndex, int destTileIndex)
     {
-        m_board.moveTile(sourceIndex, sourceTileIndex, destIndex, destTileIndex);
+        board.moveTile(sourceIndex, sourceTileIndex, destIndex, destTileIndex);
     }
     
     public void playTileFromHand(int handTileIndex, int destIndex, int destTileIndex)
     {
-        Tile tileToplay = m_currentPlayer.drawTileByIndex(handTileIndex);
-        m_board.insertTile(tileToplay, destIndex, destTileIndex);
+        Tile tileToplay = currentPlayer.drawTileByIndex(handTileIndex);
+        board.insertTile(tileToplay, destIndex, destTileIndex);
     }
     
     boolean validateGame()
     {
-        return m_board.validate();
+        return board.validate();
+    }
+    
+    boolean drawTile()
+    {
+        boolean succesfull = false;
+        if (pile.size() > 0)
+        {
+            Tile drawn =  pile.Draw();
+            currentPlayer.addTileToHand(drawn);
+            succesfull = true;
+        }
+        
+        return succesfull;
     }
 }
