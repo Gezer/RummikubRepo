@@ -6,9 +6,11 @@
 package rummikub.controller;
 
 import java.io.Console;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
+import javax.xml.bind.JAXBException;
 import rummikub.model.*;
 import rummikub.view.*;
 
@@ -50,6 +52,21 @@ public class RummikubApp {
     private void playNewGame()
     {
         setNewGame();
+        
+        //xml check
+        try
+        {
+            XMLHandler.saveGame(game, "david.xml");
+        }
+        catch(FileNotFoundException ex)
+        {
+            
+        }
+        catch(JAXBException ex)
+        {
+            
+        }
+        
         playGame();
     }
     
@@ -69,7 +86,7 @@ public class RummikubApp {
     {
         HashMap<String, Boolean> playersInfo = new HashMap<>();
         int numOfPlayers = ConsoleUtils.getIntFromUser("How many players?", MIN_PLAYER_NUM, MAX_PLAYER_NUM);
-        int numOfComputerPlayers = ConsoleUtils.getIntFromUser("How many are AI?", MIN_PLAYER_NUM, numOfPlayers);
+        int numOfComputerPlayers = ConsoleUtils.getIntFromUser("How many are AI?", 1, numOfPlayers);
         String gameName;
         
         gameName = ConsoleUtils.messageReadString("Insert the name of the game: ");
