@@ -5,8 +5,10 @@
  */
 package rummikub.model;
 
-import generated.Color;
+import generated.Players;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.*;
 
 /**
@@ -14,30 +16,66 @@ import javax.xml.bind.*;
  * @author DK
  */
 public class XMLHandler {
-<<<<<<< HEAD
 
     private static final generated.ObjectFactory objFactory = new generated.ObjectFactory();
 
-    private XMLHandler() {
-    }
+    
+    
 
-    public static generated.Rummikub createXMLGameObj(RummikubGame game) {
-=======
-    
-    private static final generated.ObjectFactory objFactory = new generated.ObjectFactory();
-    
     private XMLHandler(){}
     
-    public static generated.Rummikub createXMLGameObj(RummikubGame game)
-    {
->>>>>>> origin/master
+    public static generated.Rummikub createXMLGameObj(RummikubGame game) {
         generated.Rummikub rummikub = objFactory.createRummikub();
 
         generated.Board board = createXMLBoardObj(game.getBoard());
-
+        generated.Players players = createXMLPlayersObj(game.getPlayers());
+        
+        rummikub.setBoard(board);
+        rummikub.setPlayers(players);
+        rummikub.setName(game.getName());
+        rummikub.setCurrentPlayer(game.getCurrentPlayer().getName());
+        
         return rummikub;
     }
+    
+    private static Players createXMLPlayersObj(ArrayList<Player> gamePlayers)
+    {
+        generated.Players players = objFactory.createPlayers();
+        
+        for (Player gamePlayer : gamePlayers) {
+            generated.Players.Player player = createXMLPlayerObj(gamePlayer);
+            players.getPlayer().add(player);
+        }
+        
+        return players;
+    }
+    
+    private static generated.Players.Player createXMLPlayerObj(Player gamePlayer) 
+    {
+        generated.Players.Player player = objFactory.createPlayersPlayer();
+        
+        player.setName(gamePlayer.getName());
+        generated.PlayerType type = gamePlayer.getType() == Player.PlayerType.HUMAN?
+                                    generated.PlayerType.HUMAN : generated.PlayerType.COMPUTER;
+        player.setType(type);
+        generated.Players.Player.Tiles tiles = createXMLPLayerTiles(gamePlayer.getTiles());
+        player.setTiles(tiles);
+        
+        return player;
+    }
+    
+    private static Players.Player.Tiles createXMLPLayerTiles(List<Tile> gameTiles) {
+        generated.Players.Player.Tiles tiles = objFactory.createPlayersPlayerTiles();
+        
+        for (Tile gameTile : gameTiles) {
+            generated.Tile tile = createXMLTileObj(gameTile);
+            tiles.getTile().add(tile);
+        }
+        
+        return tiles;
+    }
 
+    
     private static generated.Board createXMLBoardObj(rummikub.model.Board gameBoard) {
         generated.Board board = objFactory.createBoard();
 
@@ -64,13 +102,13 @@ public class XMLHandler {
         generated.Tile tile = objFactory.createTile();
 
         tile.setValue(gameTile.getValue());
-        generated.Color color = createColor(gameTile.getColor());
+        generated.Color color = createXMLColorObj(gameTile.getColor());
         tile.setColor(color);
 
         return tile;
     }
 
-    private static generated.Color createColor(rummikub.model.Tile.Color gameColor) {
+    private static generated.Color createXMLColorObj(rummikub.model.Tile.Color gameColor) {
         generated.Color color;
 
         switch (gameColor) {
