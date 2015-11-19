@@ -65,6 +65,7 @@ public class RummikubApp {
         catch(JAXBException ex)
         {
             
+            //asasasd
         }
         
         playGame();
