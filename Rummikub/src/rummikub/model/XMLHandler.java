@@ -19,6 +19,7 @@ public class XMLHandler {
    
     private XMLHandler(){}
     
+    
     public static generated.Rummikub createXMLGameObj(RummikubGame game)
     {
         generated.Rummikub rummikub = objFactory.createRummikub();
