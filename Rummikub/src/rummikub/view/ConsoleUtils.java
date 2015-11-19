@@ -5,6 +5,8 @@
  */
 package rummikub.view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Guy
@@ -43,6 +45,64 @@ public class ConsoleUtils
     
     public static void printInColor(ConsoleColor color, String str)
     {
-        System.out.println(color.getValue() + str + ANSI_RESET);
+        System.out.print(color.getValue() + str + ANSI_RESET);
+    }
+    
+    public static String messageReadString(String msg)
+    {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print(msg);
+        return scanner.nextLine();
+    }
+    
+    public static int getIntFromUser(String msg, int minValue, int maxValue)
+    {
+        boolean gotLegalInput = false;
+        int selectedValue = 0;
+        
+        while (!gotLegalInput)
+        {
+            ConsoleUtils.message(msg);
+            try
+            {
+                selectedValue = ConsoleUtils.getNumberInBounds(minValue, maxValue);
+                gotLegalInput = true;
+            }
+            catch (IllegalArgumentException ex)
+            {
+                ConsoleUtils.message(ex.getMessage());
+            } 
+        }
+        
+        return selectedValue;
+    }
+    
+    public static int getNumberInBounds(Integer minValue, Integer maxValue) throws IllegalArgumentException
+    {
+        Scanner scanner = new Scanner(System.in);
+        int userSelection=0;
+        
+        System.out.print("Insert a number between " + 
+                minValue.toString() + "-" + maxValue.toString() + ": ");
+        String userInput = scanner.nextLine();
+        
+        try
+        {
+            userSelection = Integer.parseInt(userInput);            
+        }
+        catch (NumberFormatException ex)
+        {
+            //throw ex;
+            throw new IllegalArgumentException("Illegal Input, try again!");
+        }
+            
+        if (!(userSelection >= minValue && userSelection <= maxValue))
+        {
+            throw new IllegalArgumentException
+                ("Selected value is out of bounds.");
+        }
+        
+        return userSelection;
     }
 }
