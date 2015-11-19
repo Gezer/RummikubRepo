@@ -11,19 +11,19 @@ package rummikub.controller;
  */
 public class MenuItem
 {
-    public ICommand command;
-    public String text;
+    private Runnable command;
+    private String text;
         
-    public MenuItem(ICommand command, String text) {
+    public MenuItem(Runnable command, String text) {
         this.command = command;
         this.text = text;
     }
 
-    public ICommand getCommand() {
+    public Runnable getCommand() {
         return command;
     }
 
-    public void setCommand(ICommand command) {
+    public void setCommand(Runnable command) {
         this.command = command;
     }
 
@@ -39,7 +39,8 @@ public class MenuItem
     {
         if (command != null)
         {
-            command.execute();
+            command.run();
+                    
         }
     }
 }

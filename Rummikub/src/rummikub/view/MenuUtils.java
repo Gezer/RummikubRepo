@@ -29,37 +29,32 @@ public class MenuUtils {
         System.out.println("Type your selection number or 'Q' to quit and then press 'enter'");
     }
     
-    public static boolean getUserSelection(Integer o_UserSelection, Integer i_MenuItemsCount) 
+    public static int getUserSelection(Integer i_MenuItemsCount) 
             throws IllegalArgumentException
     {
-        boolean userQuit = false;
         Scanner scanner = new Scanner(System.in);
+        int userSelection=0;
         
-        String userSelection = scanner.nextLine();
-        if ( !userSelection.equalsIgnoreCase("q") )
+        String userInput = scanner.nextLine();
+        if ( !userInput.equalsIgnoreCase("q") )
         {
             try
             {
-                o_UserSelection = Integer.parseInt(userSelection);            
+                userSelection = Integer.parseInt(userInput);            
             }
             catch (NumberFormatException ex)
             {
                 //throw ex;
-                throw new IllegalArgumentException("Illegal Input, try againasd!");
+                throw new IllegalArgumentException("Illegal Input, try again!");
             }
             
-            if (!(o_UserSelection > 0 && o_UserSelection <= i_MenuItemsCount))
+            if (!(userSelection > 0 && userSelection <= i_MenuItemsCount))
             {
                 throw new IllegalArgumentException
                     ("Selected value is out of bounds.");
             }
         }
-        else
-        {
-            o_UserSelection = 0;
-            userQuit = true;
-        }
-
-        return !userQuit;
+        
+        return userSelection;
     }
 }

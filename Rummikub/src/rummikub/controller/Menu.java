@@ -33,7 +33,7 @@ public class Menu
         this.menu = menu;
     }
     
-    public void run()
+    public void run(boolean runOnce)
     {
         boolean userQuit = false;
         Integer userSelection = 0;
@@ -43,16 +43,22 @@ public class Menu
             MenuUtils.showMenu(menu, header);
             try
             {
-                userQuit = !MenuUtils.getUserSelection(userSelection, menu.size());
+                userSelection = MenuUtils.getUserSelection(menu.size());
+                userQuit = userSelection == 0;
                 if (!userQuit)
                 {
                     menu.get(userSelection-1).selected();
+                    if (runOnce) {
+                        break;
+                    }
                 }
             }
             catch (IllegalArgumentException ex)
             {
                 ConsoleUtils.message(ex.getMessage());
             }
+            
+            
         }
     }
 }
