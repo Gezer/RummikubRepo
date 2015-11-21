@@ -8,6 +8,7 @@ package rummikub.controller;
 import java.io.Console;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.HashMap;
 import javax.xml.bind.JAXBException;
@@ -54,6 +55,10 @@ public class RummikubApp {
     private void playNewGame()
     {
         setNewGame();
+        
+        List<Tile> check = game.getPlayers().get(0).getTiles();
+        
+        Collections.sort(check);
         playGame();
     }
     
