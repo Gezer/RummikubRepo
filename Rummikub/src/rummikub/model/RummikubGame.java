@@ -73,7 +73,7 @@ public class RummikubGame {
         board.insertTile(tileToplay, destIndex, destTileIndex);
     }
     
-    boolean validateGame()
+    public boolean validateGame()
     {
         return board.validate();
     }
@@ -90,4 +90,6 @@ public class RummikubGame {
         
         return succesfull;
     }
+    
+    
 }

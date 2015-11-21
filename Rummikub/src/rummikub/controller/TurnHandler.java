@@ -123,7 +123,7 @@ public class TurnHandler
         
         moveCycle();
         
-        if (!game.validateGame()) 
+        if (!game.va) 
         {
             IllegalBoardPenalty();
         }
