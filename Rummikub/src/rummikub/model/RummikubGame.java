@@ -16,6 +16,8 @@ public class RummikubGame {
     
     private Player currentPlayer;
     
+    private int currentPlayerIndex = 0;
+    
     private Pile pile;
     
     private Board board;
@@ -73,7 +75,7 @@ public class RummikubGame {
         board.insertTile(tileToplay, destIndex, destTileIndex);
     }
     
-    boolean validateGame()
+    public boolean validateGame()
     {
         return board.validate();
     }
@@ -89,5 +91,16 @@ public class RummikubGame {
         }
         
         return succesfull;
+    }
+    
+    public void switchPlayer()
+    {
+        currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
+        currentPlayer = players.get(currentPlayerIndex);
+    }
+    
+    public boolean isGameOver()
+    {
+        return currentPlayer.getTiles().size() == 0;
     }
 }
