@@ -26,7 +26,7 @@ public class MenuUtils {
             itemNum++;
         }
         
-        System.out.println("Type your selection number or 'Q' to" + quitMsg + "and then press 'enter'");
+        System.out.println("Type your selection number or 'Q' to " + quitMsg + " and then press 'enter'");
     }
     
     public static int getUserSelection(Integer i_MenuItemsCount) 

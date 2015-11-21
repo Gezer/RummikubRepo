@@ -67,6 +67,9 @@ public class GameBuilder {
         game.setPile(new Pile(Tile.newTileSet()));
         Collections.shuffle(game.getPlayers());
         game.setCurrentPlayer(game.getPlayers().get(0));
+        for (Player player : game.getPlayers()) {
+            player.getTiles().clear();
+        }
         dealTiles(game);
     }
 

@@ -32,7 +32,7 @@ public class ConsoleUtils
 
         private ConsoleColor(String colorCode) {
             this.colorCode = colorCode;
-        }    
+        }
         
         public String getValue()
         {
@@ -116,5 +116,42 @@ public class ConsoleUtils
         }
         
         return userSelection;
+    }
+    
+    private static final int MAX_SOURCE_ROW = 30;
+    private static final int MAX_SOURCE_COL = 30;
+    private static final int MIN_DEST_ROW =    1;
+    private static final int MAX_DEST_ROW =   30;
+    private static final int MAX_DEST_COL =   13;
+    
+    public static int[] getMoveIndices()
+    {
+        boolean gotLegalInput = false;
+        int sourceRow = 0;
+        int sourceCol = 0;
+        int destRow = 0;
+        int destCol = 0;
+        
+        while (!gotLegalInput)
+        try
+        {
+            message("Insert source row: ");
+            sourceRow = getNumberInBounds(0, MAX_SOURCE_ROW);
+            message("Insert source col: ");
+            sourceCol = getNumberInBounds(0, MAX_SOURCE_COL);
+            message("Insert dest row: ");
+            destRow = getNumberInBounds(MIN_DEST_ROW, MAX_DEST_ROW);
+            message("Insert dest col: ");
+            destCol = getNumberInBounds(0, MAX_DEST_COL);
+            gotLegalInput = true;
+        }
+        catch(IllegalArgumentException ex)
+        {
+            message("illegal input: try again.");
+        }
+        
+        int[] moveIndices = {sourceRow, sourceCol, destRow, destCol};
+        
+        return moveIndices;
     }
 }
