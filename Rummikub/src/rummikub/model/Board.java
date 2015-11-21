@@ -11,13 +11,21 @@ import java.util.*;
  * @author Guy
  */
 public class Board {
-    private ArrayList<Sequence> sequences = new ArrayList<Sequence>();
+    private final int MAX_SEQUENCE_AMOUNT = 30;
+    
+    private ArrayList<Sequence> sequences = new ArrayList<Sequence>(MAX_SEQUENCE_AMOUNT);
+
+    public Board() 
+    {
+        for (int i = 0; i < MAX_SEQUENCE_AMOUNT; i++) 
+        {
+            sequences.add(new Sequence());
+        }
+    }
 
     public ArrayList<Sequence> getSequences() {
         return sequences;
     }
-
-    
 
     public void moveTile(int sourceIndex, int sourceTileIndex , int destIndex, int destTileIndex)
     {

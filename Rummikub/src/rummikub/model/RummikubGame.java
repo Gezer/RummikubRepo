@@ -20,7 +20,7 @@ public class RummikubGame {
     
     private Board board;
     
-    private String name;
+    private String name; 
     
     public ArrayList<Player> getPlayers() {
         return players;

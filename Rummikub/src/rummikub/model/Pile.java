@@ -13,25 +13,29 @@ import java.util.*;
  */
 public class Pile {
     
-    private ArrayList<Tile>  m_pile = new ArrayList<>();
+    private ArrayList<Tile>  tiles = new ArrayList<>();
+
+    public ArrayList<Tile> getTiles() {
+        return tiles;
+    }
     
     public Pile(ArrayList<Tile> tileSet)
     {
-        this.m_pile = tileSet;
-        Collections.shuffle(m_pile);
+        this.tiles = tileSet;
+        Collections.shuffle(tiles);
     }
     
     public Tile Draw()
     {
         Tile drawn = null;
-        if (m_pile.size() > 0) {
-            drawn = m_pile.remove(0);
+        if (tiles.size() > 0) {
+            drawn = tiles.remove(0);
         }
         
         return drawn;
     }
 
     int size() {
-        return m_pile.size();
+        return tiles.size();
     }
 }

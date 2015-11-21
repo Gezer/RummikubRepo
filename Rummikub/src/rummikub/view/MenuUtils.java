@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class MenuUtils {
     
-    public static void showMenu(List<MenuItem> menu, String header)
+    public static void showMenu(List<MenuItem> menu, String header, String quitMsg)
     {
         System.out.println(header);
         System.out.println("Please choose:");
@@ -22,11 +22,11 @@ public class MenuUtils {
         Integer itemNum = 1;
         for(MenuItem item : menu)
         {
-            System.out.println(itemNum.toString() + ". " + item.getText());
+            System.out.println(itemNum.toString() + " - " + item.getText());
             itemNum++;
         }
         
-        System.out.println("Type your selection number or 'Q' to quit and then press 'enter'");
+        System.out.println("Type your selection number or 'Q' to" + quitMsg + "and then press 'enter'");
     }
     
     public static int getUserSelection(Integer i_MenuItemsCount) 

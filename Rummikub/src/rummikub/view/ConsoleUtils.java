@@ -18,13 +18,15 @@ public class ConsoleUtils
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_GREEN = "\u001B[32m";
     
     public enum ConsoleColor
     {
         RED(ANSI_RED),
-        BLACK(ANSI_PURPLE),
+        BLACK(ANSI_GREEN),
         BLUE(ANSI_BLUE),
-        YELLOW(ANSI_YELLOW);
+        YELLOW(ANSI_YELLOW),
+        RESET(ANSI_RESET);
         
         private final String colorCode;
 
@@ -43,9 +45,19 @@ public class ConsoleUtils
         System.out.println(msg);
     }
     
+    public static void print(String msg)
+    {
+        System.out.print(msg);
+    }
+    
     public static void printInColor(ConsoleColor color, String str)
     {
-        System.out.print(color.getValue() + str + ANSI_RESET);
+        System.out.print("[" + color.getValue() + str + ANSI_RESET + "] ");
+    }
+    
+    public static void printColumnIndices()
+    {
+        System.out.println("Column num 0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   ");
     }
     
     public static String messageReadString(String msg)

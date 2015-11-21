@@ -16,7 +16,8 @@ public class Menu
 {
     private List<MenuItem> menu;
     private String header;
-
+    private String quitMsg;
+    
     public String getHeader() {
         return header;
     }
@@ -32,15 +33,19 @@ public class Menu
     public void setMenu(List<MenuItem> menu) {
         this.menu = menu;
     }
+
+    public void setQuitMsg(String quitMsg) {
+        this.quitMsg = quitMsg;
+    }
     
-    public void run(boolean runOnce)
+    public boolean run(boolean runOnce)
     {
         boolean userQuit = false;
-        Integer userSelection = 0;
+        Integer userSelection;
         
         while (!userQuit)
         {
-            MenuUtils.showMenu(menu, header);
+            MenuUtils.showMenu(menu, header, quitMsg);
             try
             {
                 userSelection = MenuUtils.getUserSelection(menu.size());
@@ -57,8 +62,8 @@ public class Menu
             {
                 ConsoleUtils.message(ex.getMessage());
             }
-            
-            
         }
+        
+        return userQuit;
     }
 }
